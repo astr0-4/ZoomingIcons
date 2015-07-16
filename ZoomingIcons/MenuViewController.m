@@ -9,6 +9,8 @@
 #import "MenuViewController.h"
 #import "SocialItemCell.h"
 #import "SocialItem.h"
+#import "DetailViewController.h"
+@import AVFoundation;
 
 @interface MenuViewController ()
 @property (nonatomic, strong) NSMutableArray *socialItems;
@@ -52,15 +54,21 @@ static NSString * const reuseIdentifier = @"Cell";
         // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if([segue.identifier isEqualToString:@"showDetail"]){
+//    DetailViewController *detailViewController = (DetailViewController *)segue.destinationViewController;
+//    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
+//    detailViewController.socialItem = self.socialItems[indexPath.item];
+//    }
+
+//     Get the new view controller using [segue destinationViewController].
+//     Pass the selected object to the new view controller.
+//}
+
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -80,16 +88,25 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 
+
 - (SocialItemCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SocialItemCell *socialItemCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+
+    [self getSocialItemValues:indexPath forCell:socialItemCell forSection:indexPath.section];
     
-    for(SocialItem *socialItem in self.socialItems) {
-        socialItemCell.imageView.image = socialItem.image;
-        socialItemCell.viewColor.backgroundColor = socialItem.color;
-    }
-    
-   // socialItemCell.backgroundColor = [UIColor redColor];
+  
        return socialItemCell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    DetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detailView"];
+    if(indexPath.section == 0) {
+    detailViewController.socialItem = self.socialItems[indexPath.item];
+    }
+    else {
+         detailViewController.socialItem = self.socialItems[indexPath.item + 2];
+    }
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark <UICollectionViewDelegate>
@@ -103,6 +120,39 @@ static NSString * const reuseIdentifier = @"Cell";
     CGFloat inset = (collectionView.bounds.size.width - (cellCount * (cellWidth + cellSpacing)))/2;
    // inset = MAX(inset, 0.0);
     return UIEdgeInsetsMake(30, inset, 30, inset);
+}
+
+-(void)getSocialItemValues:(NSIndexPath *)indexPath forCell:(SocialItemCell *)cell forSection:(NSInteger)section {
+    SocialItem *socialItem = [[SocialItem alloc] init];
+    
+    
+    if(section == 0) {
+    socialItem = [self.socialItems objectAtIndex:indexPath.item];
+       }
+    else {
+    socialItem = [self.socialItems objectAtIndex:indexPath.item+2];
+       }
+    
+   // cell.imageView.image = socialItem.image;
+    
+
+    UIImage *tempImage = socialItem.image;
+    CGRect boundingRect = CGRectInset(cell.frame, 25, 25);
+    
+    boundingRect.origin = CGPointMake(25, 25);
+    CGRect newRect = AVMakeRectWithAspectRatioInsideRect(tempImage.size, boundingRect);
+    
+    UIGraphicsBeginImageContext(cell.frame.size);
+    
+    [tempImage drawInRect:newRect];
+    
+    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+   
+    UIGraphicsEndImageContext();
+     cell.imageView.image = smallImage;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.backgroundColor = socialItem.color;
+
 }
 
 /*
