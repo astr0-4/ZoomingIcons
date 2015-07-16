@@ -14,6 +14,10 @@
 		FAE4A28D1B57F9E4000CA2EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE4A28C1B57F9E4000CA2EC /* Images.xcassets */; };
 		FAE4A2901B57F9E4000CA2EC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE4A28E1B57F9E4000CA2EC /* LaunchScreen.xib */; };
 		FAE4A29C1B57F9E4000CA2EC /* ZoomingIconsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE4A29B1B57F9E4000CA2EC /* ZoomingIconsTests.m */; };
+		FAE4A2AA1B57FB79000CA2EC /* SocialItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE4A2A91B57FB79000CA2EC /* SocialItemCell.m */; };
+		FAE4A2AD1B57FE4C000CA2EC /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE4A2AC1B57FE4C000CA2EC /* MenuViewController.m */; };
+		FAE4A2B31B5821BD000CA2EC /* SocialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE4A2B21B5821BD000CA2EC /* SocialItem.m */; };
+		FAE4A2B51B582376000CA2EC /* Zooming-Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE4A2B41B582376000CA2EC /* Zooming-Icons.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,13 @@
 		FAE4A2951B57F9E4000CA2EC /* ZoomingIconsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZoomingIconsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE4A29A1B57F9E4000CA2EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAE4A29B1B57F9E4000CA2EC /* ZoomingIconsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZoomingIconsTests.m; sourceTree = "<group>"; };
+		FAE4A2A81B57FB79000CA2EC /* SocialItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialItemCell.h; sourceTree = "<group>"; };
+		FAE4A2A91B57FB79000CA2EC /* SocialItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialItemCell.m; sourceTree = "<group>"; };
+		FAE4A2AB1B57FE4C000CA2EC /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		FAE4A2AC1B57FE4C000CA2EC /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		FAE4A2B11B5821BD000CA2EC /* SocialItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialItem.h; sourceTree = "<group>"; };
+		FAE4A2B21B5821BD000CA2EC /* SocialItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialItem.m; sourceTree = "<group>"; };
+		FAE4A2B41B582376000CA2EC /* Zooming-Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Zooming-Icons.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +94,16 @@
 			children = (
 				FAE4A2831B57F9E4000CA2EC /* AppDelegate.h */,
 				FAE4A2841B57F9E4000CA2EC /* AppDelegate.m */,
+				FAE4A2B11B5821BD000CA2EC /* SocialItem.h */,
+				FAE4A2B21B5821BD000CA2EC /* SocialItem.m */,
+				FAE4A2A81B57FB79000CA2EC /* SocialItemCell.h */,
+				FAE4A2A91B57FB79000CA2EC /* SocialItemCell.m */,
+				FAE4A2AB1B57FE4C000CA2EC /* MenuViewController.h */,
+				FAE4A2AC1B57FE4C000CA2EC /* MenuViewController.m */,
 				FAE4A2861B57F9E4000CA2EC /* ViewController.h */,
 				FAE4A2871B57F9E4000CA2EC /* ViewController.m */,
 				FAE4A2891B57F9E4000CA2EC /* Main.storyboard */,
+				FAE4A2B41B582376000CA2EC /* Zooming-Icons.xcassets */,
 				FAE4A28C1B57F9E4000CA2EC /* Images.xcassets */,
 				FAE4A28E1B57F9E4000CA2EC /* LaunchScreen.xib */,
 				FAE4A27F1B57F9E4000CA2EC /* Supporting Files */,
@@ -201,6 +219,7 @@
 			files = (
 				FAE4A28B1B57F9E4000CA2EC /* Main.storyboard in Resources */,
 				FAE4A2901B57F9E4000CA2EC /* LaunchScreen.xib in Resources */,
+				FAE4A2B51B582376000CA2EC /* Zooming-Icons.xcassets in Resources */,
 				FAE4A28D1B57F9E4000CA2EC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +240,10 @@
 			files = (
 				FAE4A2881B57F9E4000CA2EC /* ViewController.m in Sources */,
 				FAE4A2851B57F9E4000CA2EC /* AppDelegate.m in Sources */,
+				FAE4A2B31B5821BD000CA2EC /* SocialItem.m in Sources */,
 				FAE4A2821B57F9E4000CA2EC /* main.m in Sources */,
+				FAE4A2AA1B57FB79000CA2EC /* SocialItemCell.m in Sources */,
+				FAE4A2AD1B57FE4C000CA2EC /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
